@@ -15,29 +15,18 @@
 #include "listfun.h"
 
 static car_t *front=NULL; 
-
+// 2 cases; 1 cp is null , we don't care wht happens and we leave
+// the other case: cp! = NULL and we want to add it  to the list
+// adding to list: if front is null or already something there
 int32_t lput(car_t *cp) {
-
-	car_t *pp=NULL;
-	
-	if(front->next==NULL) {
-		printf("flag\n");
-		front->next=cp;
-
-	}else{
-
-		pp=front->next;
-		cp->next=pp;
-		front->next=cp;
-
-	}
 
 	if(cp==NULL){
 		
-		return 1;
+		return -1;
 
 	}else{
-
+		cp->next = front;
+		cp = front;
 		return 0;
 	}
 }

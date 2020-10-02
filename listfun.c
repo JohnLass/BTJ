@@ -24,7 +24,7 @@
 
  }
 */
- car_t *makecar(char*platep,double price,int year) {
+ car_t * makecar(char*platep,double price,int year) {
 
 	 car_t *cp=NULL;
 

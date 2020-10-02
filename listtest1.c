@@ -31,7 +31,8 @@ int main(void){
 	car1.year=20;
 	*/		
 	flag=lput(car1);
-
+	free(car1);
+	
 	if(flag==0){
 		printf("%i",flag);
 		exit(EXIT_SUCCESS);
