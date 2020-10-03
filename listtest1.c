@@ -21,15 +21,6 @@ int main(void){
 	car_t *car1=makecar("ABC123",200000,2020);
 	int32_t flag;
 
-	/*	listinit();*/
- 
-	/*	car1.next=NULL;
-
-	
-	strcpy(car1.plate,"ABC123");
-	car1.price=200000;
-	car1.year=20;
-	*/		
 	flag=lput(car1);
 	free(car1);
 	
