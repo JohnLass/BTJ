@@ -75,24 +75,40 @@ car_t *lremove(char *platep) {
 
 	car_t *incp=NULL;
 	car_t *fp=NULL;
+	car_t *prevp=front;
 	int ret=0;
 	int count=0;
+	int loop_count = 0;
 	
 	if(platep!=NULL){
-		
+
+		//loop through linked list
 		for(incp=front; incp!=NULL; incp=incp->next){
-		 
+
+			//check if the plate matches
 			ret=strcmp(incp->plate,platep);
 			
-			if((ret=0)) {
-
-				fp->next=incp->next;
+			if((ret==0)) {
+				
+				//set return pointer to this one in the list
+				fp = incp;
+				//note that we have found it
 				count = count + 1;
-
+				//if its the first thing set the front to the second one, if not set previus->next to this one -> next
+				if(loop_count == 0){
+					front = front->next;
+				}else{
+					prevp->next = incp->next;
+				}
+				
 			}
-			
-			fp = incp;
 
+			//if we havent found it yet increment the previous one
+			if(count==0){
+				prevp = incp;
+			}
+			//increment loop count
+			loop_count = loop_count + 1;
 		}
 
 	}else{
@@ -102,7 +118,7 @@ car_t *lremove(char *platep) {
 
 	}
 
-	if((count=0)){
+	if((count==0)){
 		return NULL;
 	}
 
