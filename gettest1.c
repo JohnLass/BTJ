@@ -11,12 +11,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <list.h>
+#include "list.h"
+#include "listfun.h"
 
 int main(void){
 
 	//initialize variables
-	int rtrn = 0;
+	
 	car_t *firstp = (car_t *) malloc(sizeof(car_t));
 	car_t *secondp = (car_t *) malloc(sizeof(car_t));
 	car_t *lastp = (car_t *) malloc(sizeof(car_t));
@@ -40,17 +41,21 @@ int main(void){
 	lastp->year = 2015;
 
 	//Link items in list together
-	firstp->next = &secondp;
-	secondp->next = &lastp;
-
+	//firstp->next = secondp;
+	//	secondp->next = lastp;
+	lput(lastp);
+	lput(secondp);
+	lput(firstp);
 
 	//run test to see if we can get the first car (and delete it)
 	
-	testp = get();
+	testp = lget();
 
 
 	//check to make sure data in test pointer is correct (matches the first pointer in the list)
 
+	printf("this is testp->price: %lf\n", testp->price);
+	printf("this is firstp->price: %lf\n", firstp->price);
 	
 	if(testp->price != firstp->price){
 		exit(EXIT_FAILURE);
@@ -60,14 +65,14 @@ int main(void){
 		exit(EXIT_FAILURE);
 	}
 
-	if(testp->next != &secondp){
+	if(testp->next != secondp){
 		exit(EXIT_FAILURE);
 	}
 	
 
 	//run it again and make sure it now has data for second pointer
 
-	testp = get();
+	testp = lget();
 
 
 	// check test pointer data to make sure it has second pointer's data now
@@ -80,10 +85,15 @@ int main(void){
 		exit(EXIT_FAILURE);
 	}
 
-	if(testp->next != &lastp){
+	if(testp->next != lastp){
 		exit(EXIT_FAILURE);
 	}
 
+	free(firstp);
+	free(secondp);
+	free(lastp);
+	free(testp);
+	
 	//if nothing has triggered a failure by now than it worked properly
 	exit(EXIT_SUCCESS);
 
