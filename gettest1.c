@@ -89,8 +89,8 @@ int main(void){
 		exit(EXIT_FAILURE);
 	}
 
-	free(firstp);
-	free(secondp);
+	//	free(firstp);
+	//	free(secondp);
 	free(lastp);
 	free(testp);
 	

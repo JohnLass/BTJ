@@ -17,10 +17,16 @@
 
 int main(void){
 
+	//	int i=0;
+	//car_t *pp=NULL;
 	make_list();
 
-	print_node(lget());
-	print_node(lget());
+ 	print_node(lget());
+ 	print_node(lget());
+
+	lget();
+
+
 	
 	
 	exit(EXIT_SUCCESS);

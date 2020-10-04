@@ -46,10 +46,11 @@ car_t *lget()  {
 
 	}else if(front!=NULL) {
 
-		fp=front; 
-		front = front->next;
+		fp=front;
+		free(front);
+		front = fp->next;
 		return fp;
-			
+		
 			}else{
 
 		printf("Error using function 'get()'\n");
@@ -119,6 +120,7 @@ car_t *lremove(char *platep) {
 	}
 
 	if((count==0)){
+		printf("Plate not found in list");
 		return NULL;
 	}
 
