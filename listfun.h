@@ -31,4 +31,10 @@ car_t *makecar(char*platep,double price,int year);
 
 /*Shifts all list entries and adds a new entry to the beginning of the list*/
 car_t *shadd();
-	
+
+
+/*Prints the car's plate, price and year. Checks to make sure pointer isn't null   */
+void print_node(car_t *cp);
+
+/* Makes a list with three car entries in it*/
+void make_list(void);

@@ -54,3 +54,42 @@ car_t *shadd() {
 
 }
 	
+
+//function that takes a pointer to an entry and prints its data
+//does not return anything
+void print_node(car_t *cp){
+
+	//checks whether it was passed a null pointer
+	if(cp == NULL){
+		printf("passed a null pointer\n");
+	 
+	}else{
+
+		//prints the node
+		printf("The car's licence plate is: %s\n", cp->plate);
+		printf("The car's price is: %lf\n", cp->price);
+		printf("The car's year is: %d\n", cp->year);
+		
+		
+	}
+
+	return;
+}
+
+
+//makes a three car list for testing purposes
+void make_list(void){
+
+	//make three pointers to cars
+	car_t * firstp = makecar("8008135", 60.4, 2020);
+	car_t * secondp = makecar("p", 6020.2, 2003);
+	car_t * lastp = makecar("rfc47", 3932.9, 20120);
+
+
+	//Make a 3 car list in the correct order
+	lput(lastp);
+	lput(secondp);
+	lput(firstp);
+
+	return;
+}
