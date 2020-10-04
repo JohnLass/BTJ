@@ -1,6 +1,6 @@
 CFLAGS=-Wall -pedantic -std=c11 -g
 
-all:	listtest1 listtest2 gettest1 gettest2 remove_test1 remove_test2
+all:	listtest1 listtest2 gettest1 gettest2 remove_test1 remove_test2 remove_test3
 
 list.o:	list.c list.h listfun.h
 				gcc $(CFLAGS) -c list.c
@@ -23,6 +23,9 @@ remove_test1.o:	remove_test1.c list.h listfun.h
 remove_test2.o:	remove_test2.c list.h listfun.h
 								gcc $(CFLAGS) -c remove_test2.c
 
+remove_test3.o: remove_test3.c list.h listfun.h
+								gcc $(CFLAGS) -c remove_test3.c
+
 listtest1:	listtest1.o	list.o listfun.o
 						gcc $(CFLAGS) list.o listfun.o listtest1.o -o listtest1	
 
@@ -41,5 +44,8 @@ remove_test1:		remove_test1.o list.o listfun.o
 remove_test2:		remove_test2.o list.o listfun.o
 								gcc $(CFLAGS) list.o listfun.o remove_test2.o -o remove_test2
 
+remove_test3: 		remove_test3.o list.o listfun.o
+								gcc $(CFLAGS) list.o listfun.o remove_test3.o -o remove_test3
+
 clean:
-				rm -f *.o listtest1 listtest2 gettest1
+				rm -f *.o listtest1 listtest2 gettest1 remove_test1 remove_test2 remove_test3
