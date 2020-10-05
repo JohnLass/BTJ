@@ -13,19 +13,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "list.h"
+#include "listfun.h"
 
 int main(void){
-
-	car_t *testp = (car_t *) malloc(sizeof(car_t));
-
-
+	car_t *testp;
 	testp = lget();
 
-	if (testp == NULL){
-		exit(EXIT_SUCCESS);
+	if (testp != NULL){
+		printf("Failure\n");
+		exit(EXIT_FAILURE);
 	}
-	
-	exit(EXIT_FAILURE);
-	
 
+	printf("Success\n");
+	exit(EXIT_SUCCESS);
 }
