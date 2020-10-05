@@ -17,18 +17,15 @@
 #include "listfun.h"
 
 int main(void){
-
 	car_t *car1=makecar("ABC123",200000,2020);
 	int32_t flag;
-
 	flag=lput(car1);
 	free(car1);
-	
 	if(flag==0){
-		printf("%i",flag);
+		printf("Success\n");
 		exit(EXIT_SUCCESS);
-			}else{
+	}else{
+		printf("Failure\n");
 		exit(EXIT_FAILURE);
-			}
-
+	}
 }
