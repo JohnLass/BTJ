@@ -17,15 +17,10 @@
 #include "listfun.h"
 
 int main(void){
-
-	//removing from an empty list
 	car_t *testp = lremove("NULL_CAR");
 
-	//should be null if the plate didnt exist
 	if(testp != NULL){
 		exit(EXIT_FAILURE);
 	}
-
 	exit(EXIT_SUCCESS);
-	
 }

@@ -68,11 +68,11 @@ car_t *lremove(char *platep) {
 			loop_count = loop_count + 1;
 		}
 	}else{
-		printf("Invalid arg");
+		printf("Invalid arg\n");
 		return NULL;
 	}
 	if((count==0)){
-		printf("Plate not found in list");
+		printf("Plate not found in list\n");
 		return NULL;
 	}
 	return fp;

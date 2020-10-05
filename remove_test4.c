@@ -17,56 +17,29 @@
 #include "listfun.h"
 
 int main(void){
+	make_list();
+	car_t *flagp;
 
+	flagp = lremove("rfc47");
 	
-	// Initializing cars for non-empty list
-	car_t *car1 = makecar("3040 FF", 20000.23, 1997);
-	car_t *car2 = makecar("8976 GH", 30000.23, 2008);
-	car_t *car3 = makecar("34245 FW", 402042.23, 2010);
-	car_t *flagp = (car_t *) malloc(sizeof(car_t));
-
-	// Creating car list
-	lput(car3);
-	lput(car2);
-	lput(car1);
-
-	//removing the last car entry
-	flagp = lremove("34245 FW");
-	
-	//ensures that car removed matches correct argument
-	if(strcmp(flagp->plate,"34245 FW") != 0){
+	if(!(checkcar(flagp,"rfc47", 3932.9, 20120))){
+		printf("Failure\n");
 		exit(EXIT_FAILURE);
 	}
-	if(flagp->price != 402042.23){
+	flagp = lremove("rfc47");
+	if(flagp!=NULL){
+		printf("Failure\n");
 		exit(EXIT_FAILURE);
 	}
-    if(flagp->year != 2010){
-        exit(EXIT_FAILURE);
-    }
-
- 
-
-	//confirm removal using lget
-	flagp = lget();
-
-    //confirm pointer is not null
-    if(flagp==NULL){
-        exit(EXIT_FAILURE);
-    }
-    
-	//Check to make sure that flagp now matches first entry data
-	if(strcmp(flagp->plate,"3040 FF") != 0){
-		exit(EXIT_FAILURE);
-	}
-
-	//removing a non-valid entry
+     
 	flagp = lremove("NOT VALID DUDE");
 	if(flagp != NULL){
+		printf("Failure\n");
 		exit(EXIT_FAILURE);
 	}
 
-    free(flagp);
-
+	free(flagp);
+	printf("Success\n");
 	exit(EXIT_SUCCESS);
 	
 }
