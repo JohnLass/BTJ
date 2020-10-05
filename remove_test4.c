@@ -21,24 +21,27 @@ int main(void){
 	car_t *flagp;
 
 	flagp = lremove("rfc47");
-	
 	if(!(checkcar(flagp,"rfc47", 3932.9, 20120))){
 		printf("Failure\n");
 		exit(EXIT_FAILURE);
 	}
+	free(flagp);
 	flagp = lremove("rfc47");
 	if(flagp!=NULL){
 		printf("Failure\n");
 		exit(EXIT_FAILURE);
-	}
-     
+	}  
 	flagp = lremove("NOT VALID DUDE");
 	if(flagp != NULL){
 		printf("Failure\n");
 		exit(EXIT_FAILURE);
 	}
-
+	
+	flagp = lget();
 	free(flagp);
+	flagp = lget();
+	free(flagp);
+	
 	printf("Success\n");
 	exit(EXIT_SUCCESS);
 	
