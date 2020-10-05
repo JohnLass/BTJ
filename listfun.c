@@ -8,27 +8,18 @@
  * Description: 
  * 
  */
-
-
-
-#include "list.h"
-#include <stdint.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <math.h>
- 
+#include "listfun.h" 
 /* void listinit(){
 
 	 front->next=NULL;
 
  }
 */
- car_t * makecar(char*platep,double price,int year) {
+car_t *makecar(char *platep,double price,int year) {
 
 	 car_t *cp=NULL;
 
-	 if(!(cp = (car_t*)malloc(sizeof(car_t)))) {
+	 if((cp = (car_t*)malloc(sizeof(car_t)))==NULL) {
 
 		 printf("[Error: malloc failed allocating car]\n");
 		 return NULL;
@@ -93,3 +84,16 @@ void make_list(void){
 
 	return;
 }
+
+
+bool checkcar(car_t *cp, char *platep, double price, int year){
+	if(cp->price != price)
+		return false;
+	if(strcmp(cp->plate,platep) != 0)
+		return false;
+	if(cp->year != year)
+		return false;
+	return true;
+}
+
+	

@@ -20,44 +20,22 @@ static car_t *front=NULL;
 // adding to list: if front is null or already something there
 int32_t lput(car_t *cp) {
 
-	if(cp==NULL){
-		
+	if(cp==NULL)
 		return -1;
-
-	}else{
-
-		cp->next = front;
-		front=cp;
-		return 0;
-
-	}
-
+	cp->next = front;
+	front=cp;
+	return 0;
 }
 	
 	
 car_t *lget()  {
-
 	car_t *fp;
 	
-	if(front==NULL) {
-
-		printf("List is empty \n");
+	if(front==NULL) 
 		return NULL;
-
-	}else if(front!=NULL) {
-
-		fp=front;
-		free(front);
-		front = fp->next;
-		return fp;
-		
-			}else{
-
-		printf("Error using function 'get()'\n");
-		return NULL;
-
-	}
-	
+	fp=front;
+	front = fp->next;
+	return fp;
 }
 
 void lapply(void (*fn)(car_t *cp)) {

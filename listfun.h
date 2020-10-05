@@ -1,3 +1,4 @@
+#pragma once
 /* listfun.h --- 
  * 
  * 
@@ -9,18 +10,19 @@
  * 
  */
 
-
-
 #include "list.h"
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <string.h>
 #include <math.h>
 
 
+
 /*Initializes the list by making front->next point to NULL*/
 void listinit();
+
 
 
 
@@ -38,3 +40,5 @@ void print_node(car_t *cp);
 
 /* Makes a list with three car entries in it*/
 void make_list(void);
+
+bool checkcar(car_t *cp, char *platep, double price, int year);
