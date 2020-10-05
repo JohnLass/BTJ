@@ -18,14 +18,11 @@
 
 
 int main(void){
-
-	//declare car pointers
 	car_t * firstp = makecar("abcde",20.20,3030);
 	car_t * secondp = makecar("p",204.2,30);
 	car_t * lastp = makecar("GDX",2.340,300);
 	car_t * testp = NULL;
 
-	//make the list in correct order
 	lput(lastp);
 	lput(secondp);
 	lput(firstp);
@@ -34,30 +31,32 @@ int main(void){
 	testp = lremove("p");
 
 	//check to make sure it returned correct entry
-	if(strcmp(testp->plate, "p") != 0){
+	if(!checkcar(testp,"p",204.2,30)){
+		printf("Failure");
 		exit(EXIT_FAILURE);
 	}
-	if(testp->price != 204.2){
-		exit(EXIT_FAILURE);
-	}
+	free(testp);
+ 
 
 	//now check that the order is correct by lget() twice and should be first pointer, than the last pointer
 	testp = lget();
 
 	//check to make sure it is first pointer
-	if(testp->price != 20.20){
+	if(!checkcar(testp,"abcde",20.20,3030)){
+		printf("Failure");
 		exit(EXIT_FAILURE);
 	}
+	free(testp);
 
 	//check to make sure it skips to last now
 	testp = lget();
 
 	//make sure test pointer is now last
-	if(testp->price != 2.340){
+	if(!checkcar(testp,"GDX",2.340,300)){
+		printf("Failure");
 		exit(EXIT_FAILURE);
 	}
-	
-	
+	free(testp);
 	//If it gets here program worked
 	exit(EXIT_SUCCESS);
 }
