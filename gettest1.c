@@ -16,35 +16,32 @@
 #include "listfun.h"
 
 int main(void){
-	bool carstat1, carstat2;
-	car_t *p1, *p2, *lp, *tp;
-		
-	p1 = makecar("828393", 800.5, 2005);
-	p2 = makecar("GOOSE", 700.5, 2015);
-	lp = makecar("last1", 600.5, 2005);
+	car_t *tp;
+	make_list();	
 	
-	lput(lastp);
-	lput(secondp);
-	lput(firstp);
+	tp = lget();
 
-	testp = lget();
+	
+	if(!(checkcar(tp,"8008135", 60.4, 2020))) {
+		printf("Failure");
+		exit(EXIT_FAILURE);
+	}
+	free(tp);
+	tp = lget();
+	
+	if(!(checkcar(tp,"p", 6020.2, 2003))) {
+		printf("Failure");
+		exit(EXIT_FAILURE);
+	}
 
-	printf("this is testp->price: %lf\n", testp->price);
-	printf("this is firstp->price: %lf\n", firstp->price);
-
-	if((checkcar(testp,"828393", 800.5, 2005))==FALSE) {
+	free(tp);
+	tp = lget();
+	
+	if(!(checkcar(tp,"rfc47", 3932.9, 20120))) {
 		printf("Failure");
 		exit(EXIT_FAILURE);
 	}
 	
-	
-	testp = lget();
-carstat2 = 
-	free(lastp);
-	free(testp);
-	
-	//if nothing has triggered a failure by now than it worked properly
+	free(tp);
 	exit(EXIT_SUCCESS);
-
-
 }
