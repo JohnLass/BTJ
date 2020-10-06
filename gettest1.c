@@ -22,7 +22,7 @@ int main(void){
 	tp = lget();
 
 	
-	if(!(checkcar(tp,"8008135", 60.4, 2020))) {
+	if(!(checkcar(tp,"812345", 60.4, 2020))) {
 		printf("Failure");
 		exit(EXIT_FAILURE);
 	}

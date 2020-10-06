@@ -36,7 +36,7 @@ void print_node(car_t *cp){
 }
 
 void make_list(void){
-	car_t * firstp = makecar("8008135", 60.4, 2020);
+	car_t * firstp = makecar("812345", 60.4, 2020);
 	car_t * secondp = makecar("p", 6020.2, 2003);
 	car_t * lastp = makecar("rfc47", 3932.9, 20120);
 	lput(lastp);
